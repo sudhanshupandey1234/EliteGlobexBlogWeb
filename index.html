@@ -3,298 +3,123 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EliteGlobex | Insights & Perspectives</title>
+  <title>EliteGlobex | The Intelligence Journal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0b0f19;
-      --card-bg: rgba(22, 28, 45, 0.7);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --accent: #6366f1;
-      --accent-hover: #4f46e5;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --tag-bg: rgba(99, 102, 241, 0.15);
-      --tag-text: #818cf8;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-
-    body {
-      background-color: var(--bg);
-      color: var(--text-main);
-      line-height: 1.6;
-      background-image: 
-        radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
-        radial-gradient(circle at 85% 60%, rgba(168, 85, 247, 0.1) 0%, transparent 40%);
-      min-height: 100vh;
-    }
-
-    /* Navbar */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 2.5rem;
-      border-bottom: 1px solid var(--card-border);
-      backdrop-filter: blur(12px);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(11, 15, 25, 0.85);
-    }
-
-    .logo {
-      font-size: 1.4rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .logo span {
-      color: var(--accent);
-    }
-
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      margin-left: 1.75rem;
-      font-size: 0.95rem;
-      transition: color 0.2s ease;
-    }
-
-    nav a:hover {
-      color: var(--text-main);
-    }
-
-    .nav-btn {
-      background: var(--accent);
-      color: white !important;
-      padding: 0.5rem 1.2rem;
-      border-radius: 9999px;
-      transition: background 0.2s ease;
-    }
-
-    .nav-btn:hover {
-      background: var(--accent-hover);
-    }
-
-    /* Hero Section */
-    .hero {
-      text-align: center;
-      padding: 5rem 1.5rem 3.5rem;
-      max-width: 780px;
-      margin: 0 auto;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      padding: 0.35rem 0.9rem;
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      font-size: 0.8rem;
-      font-weight: 600;
-      border-radius: 9999px;
-      margin-bottom: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.2rem;
-      line-height: 1.2;
-      margin-bottom: 1.2rem;
-      font-weight: 700;
-    }
-
-    .hero p {
-      color: var(--text-muted);
-      font-size: 1.15rem;
-    }
-
-    /* Blog Grid */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem 2rem 5rem;
-    }
-
-    .section-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 2rem;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(99, 102, 241, 0.4);
-    }
-
-    .card-img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      background: #1e293b;
-    }
-
-    .card-content {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-
-    .tag {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--tag-text);
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-    }
-
-    .card-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 0.6rem;
-      line-height: 1.35;
-    }
-
-    .card-desc {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      margin-bottom: 1.25rem;
-      flex-grow: 1;
-    }
-
-    .card-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid var(--card-border);
-      padding-top: 1rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--card-border);
-      text-align: center;
-      padding: 2.5rem 1.5rem;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.3rem; }
-      header { padding: 1rem 1.5rem; }
-      nav { display: none; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Navigation -->
+  <div class="glow-orb"></div>
+
+  <!-- Header -->
   <header>
-    <div class="logo">EliteGlobex<span>.</span></div>
-    <nav>
-      <a href="#">Articles</a>
-      <a href="#">Categories</a>
-      <a href="#">About</a>
-      <a href="#" class="nav-btn">Subscribe</a>
-    </nav>
+    <div class="header-inner">
+      <a href="#" class="brand">
+        EliteGlobex <span class="brand-tag">Quarterly</span>
+      </a>
+      <nav>
+        <a href="#perspectives">Perspectives</a>
+        <a href="#macro">Global Trade</a>
+        <a href="#tech">Technology</a>
+        <a href="#subscribe" class="btn-read">Subscribe</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-badge">Publication & Trends</div>
-    <h1>Ideas shaping the future of global industry.</h1>
-    <p>In-depth analysis, global trade perspectives, and curated business insights.</p>
+  <!-- Editorial Masthead -->
+  <section class="masthead">
+    <div class="masthead-meta">
+      <span>Vol. IV &bull; No. 03</span>
+      <span>Published Autumn 2026</span>
+    </div>
+    <h1>The architecture of modern commerce & frontier strategy.</h1>
+    <p>A focused publication investigating cross-border enterprise logistics, sovereign technology layers, and executive foresight.</p>
   </section>
 
-  <!-- Blog Cards Grid -->
-  <main class="container">
-    <h2 class="section-title">Latest Perspectives</h2>
-    <div class="grid">
+  <!-- Filter chips -->
+  <div class="filter-bar">
+    <button class="filter-chip active">All Dispatches</button>
+    <button class="filter-chip">Supply Chain</button>
+    <button class="filter-chip">Autonomous Systems</button>
+    <button class="filter-chip">Capital & Liquidity</button>
+  </div>
+
+  <!-- Main Editorial Grid -->
+  <main class="journal-grid">
+    
+    <!-- Big Feature Lead Story -->
+    <article class="lead-story">
+      <div class="lead-img-box">
+        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80" alt="Executive Strategy" />
+      </div>
+      <div class="lead-content">
+        <span class="post-category">Frontier Strategy &bull; Lead Report</span>
+        <h2 class="lead-title">The Realignment of Global Corridors: What 2026 Demands of Cross-Border Trade</h2>
+        <p class="lead-summary">
+          As geopolitical realignments reshape transit channels, enterprise supply chains are abandoning single-source dependence. Here is how resilient networks are rebuilding buffer liquidity.
+        </p>
+        <div class="author-meta">
+          <img class="author-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Editorial Contributor" />
+          <div class="author-info">
+            <strong>Devi R. Varma</strong>
+            <span>Lead Macro Strategist &bull; 9 min read</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Side Editorial Feed -->
+    <div class="feed-stack">
       
-      <!-- Article 1 -->
-      <article class="card">
-        <img class="card-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Global Architecture" />
-        <div class="card-content">
-          <span class="tag">Strategy</span>
-          <h3 class="card-title">Navigating Modern Supply Chains in 2026</h3>
-          <p class="card-desc">Understanding key market shifts, geopolitical logistics, and sustainable cross-border scaling.</p>
-          <div class="card-meta">
-            <span>5 min read</span>
-            <span>Sep 2026</span>
-          </div>
+      <article class="feed-item">
+        <span class="post-category">Technology & Systems</span>
+        <h3 class="feed-title">Edge Compute Across Port Infrastructure</h3>
+        <p class="feed-summary">How local inference nodes are cutting cargo clearance latency from days to seconds.</p>
+        <div class="feed-meta">
+          <span>By Elena Chen</span>
+          <span>5 min read</span>
         </div>
       </article>
 
-      <!-- Article 2 -->
-      <article class="card">
-        <img class="card-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Technology Circuit" />
-        <div class="card-content">
-          <span class="tag">Technology</span>
-          <h3 class="card-title">Autonomous Infrastructure & Data Integration</h3>
-          <p class="card-desc">How edge architectures and smart algorithms are reinventing organizational speed.</p>
-          <div class="card-meta">
-            <span>7 min read</span>
-            <span>Sep 2026</span>
-          </div>
+      <article class="feed-item">
+        <span class="post-category">Monetary Frameworks</span>
+        <h3 class="feed-title">Currency Hedging for Mid-Tier Exporters</h3>
+        <p class="feed-summary">Tactical distribution models to protect margins against volatile FX fluctuations.</p>
+        <div class="feed-meta">
+          <span>By Marcus Sterling</span>
+          <span>6 min read</span>
         </div>
       </article>
 
-      <!-- Article 3 -->
-      <article class="card">
-        <img class="card-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Analytics and Dashboard" />
-        <div class="card-content">
-          <span class="tag">Economy</span>
-          <h3 class="card-title">Financial Resiliency for Cross-Border Ventures</h3>
-          <p class="card-desc">A tactical look at risk distribution, liquidity pools, and international currency hedging.</p>
-          <div class="card-meta">
-            <span>4 min read</span>
-            <span>Sep 2026</span>
-          </div>
+      <article class="feed-item">
+        <span class="post-category">Infrastructure</span>
+        <h3 class="feed-title">The Next Decade of Sustainable Warehousing</h3>
+        <p class="feed-summary">Decarbonizing industrial square footage without sacrificing throughput velocity.</p>
+        <div class="feed-meta">
+          <span>By A. N. Rao</span>
+          <span>4 min read</span>
         </div>
       </article>
 
     </div>
   </main>
 
+  <!-- Newsletter -->
+  <section class="newsletter-band" id="subscribe">
+    <h3>Read the briefing every Thursday.</h3>
+    <p>Curated executive analysis delivered straight to decision-makers. No fluff.</p>
+    <form class="sub-form" onsubmit="event.preventDefault(); alert('Subscribed successfully.');">
+      <input type="email" placeholder="Enter your business email" required />
+      <button type="submit">Join Briefing</button>
+    </form>
+  </section>
+
   <!-- Footer -->
   <footer>
-    <p>&copy; 2026 EliteGlobex. All rights reserved.</p>
+    <p>&copy; 2026 EliteGlobex Editorial. All rights reserved.</p>
+    <p>Published with precision for modern industry leaders.</p>
   </footer>
 
 </body>
